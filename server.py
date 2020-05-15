@@ -159,13 +159,13 @@ while True:
         try:
             _imap_host = request['imap-host']
             _imap_port = request['imap-port']
-            _imap_user = request['imap-login']
-            _imap_pass = request['imap-password']
+            _imap_user = request['imap-user']
+            _imap_pass = request['imap-pass']
 
             _smtp_host = request['smtp-host']
             _smtp_port = request['smtp-port']
-            _smtp_user = request['smtp-login']
-            _smtp_pass = request['smtp-password']
+            _smtp_user = request['smtp-user']
+            _smtp_pass = request['smtp-pass']
 
             _imap = IMAPClient(host=_imap_host, port=_imap_port)
             _imap.login(_imap_user, _imap_pass)

@@ -48,12 +48,12 @@ function! iris#api#login()
     \'type': 'login',
     \'imap-host': g:iris_imap_host,
     \'imap-port': g:iris_imap_port,
-    \'imap-login': g:iris_imap_user,
-    \'imap-password': g:iris_imap_pass,
+    \'imap-user': g:iris_imap_user,
+    \'imap-pass': g:iris_imap_pass,
     \'smtp-host': g:iris_smtp_host,
     \'smtp-port': g:iris_smtp_port,
-    \'smtp-login': g:iris_smtp_user,
-    \'smtp-password': empty(g:iris_smtp_pass) ? g:iris_imap_pass : g:iris_smtp_pass,
+    \'smtp-user': g:iris_smtp_user,
+    \'smtp-pass': empty(g:iris_smtp_pass) ? g:iris_imap_pass : g:iris_smtp_pass,
   \})
 endfunction
 
