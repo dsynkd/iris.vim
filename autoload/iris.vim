@@ -1,7 +1,5 @@
 let s:started = 0
 
-" -------------------------------------------------------------------- # Start #
-
 function! iris#start()
   if s:started == 0
     if(iris#api#login())
