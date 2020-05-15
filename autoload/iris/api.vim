@@ -9,6 +9,21 @@ endfunction
 " -------------------------------------------------------------------- # Login #
 
 function! iris#api#login()
+
+  if !exists("g:iris_name")
+    echohl ErrorMsg | echo "iris_name is not set!"
+    return 1
+  elseif !exists("g:iris_email")
+    echohl ErrorMsg | echo "iris_email is not set!"
+    return 1
+  elseif !exists("g:iris_imap_host")
+    echohl ErrorMsg | echo "iris_imap_host is not set!"
+    return 1
+  elseif !exists("g:iris_imap_host")
+    echohl ErrorMsg | echo "iris_smtp_host is not set!"
+    return 1
+  endif
+
   execute 'call iris#api#' . s:editor . '#start()'
 
   redraw | echo

@@ -184,6 +184,7 @@ endfunction
 
 function! s:render(type, lines)
   let s:max_widths = s:get_max_widths(a:lines, s:config[a:type].columns)
+  let header = [s:render_line(s:config.labels, s:max_widths, a:type)]
   let line = map(copy(a:lines), 's:render_line(v:val, s:max_widths, a:type)')
 
   return line

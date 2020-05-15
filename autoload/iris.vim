@@ -4,7 +4,8 @@ let s:started = 0
 
 function! iris#start()
   if s:started == 0
-    call iris#api#login()
+    if(iris#api#login())
+		return 1
     call iris#folder#api#select('INBOX')
     let s:started = 1
   else
