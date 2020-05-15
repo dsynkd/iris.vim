@@ -24,14 +24,19 @@ function! iris#api#login()
     return 1
   endif
 
+  let g:iris_imap_login = get(g:, 'iris_imap_login', g:iris_email)
+  let g:iris_imap_port  = get(g:, 'iris_imap_port', 993)
+  let g:iris_smtp_login = get(g:, 'iris_smtp_login', g:iris_email)
+  let g:iris_smtp_port  = get(g:, 'iris_smtp_port', 587)
+
   execute 'call iris#api#' . s:editor . '#start()'
 
   redraw | echo
-  let prompt = 'Iris: IMAP password:' . "\n> "
+  let prompt = 'IMAP password:' . "\n> "
   let imap_password = s:compose('iris#utils#trim', 'inputsecret')(prompt)
 
   redraw | echo
-  let prompt = 'Iris: SMTP password (empty=same as IMAP):' . "\n> "
+  let prompt = 'SMTP password (empty=same as IMAP):' . "\n> "
   let smtp_password = s:compose('iris#utils#trim', 'inputsecret')(prompt)
 
   call iris#utils#log('logging in...')
