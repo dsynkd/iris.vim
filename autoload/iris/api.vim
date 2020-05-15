@@ -24,9 +24,9 @@ function! iris#api#login()
     return 1
   endif
 
-  let g:iris_imap_login = get(g:, 'iris_imap_login', g:iris_email)
+  let g:iris_imap_user = get(g:, 'iris_imap_user', g:iris_email)
   let g:iris_imap_port  = get(g:, 'iris_imap_port', 993)
-  let g:iris_smtp_login = get(g:, 'iris_smtp_login', g:iris_email)
+  let g:iris_smtp_user = get(g:, 'iris_smtp_user', g:iris_email)
   let g:iris_smtp_port  = get(g:, 'iris_smtp_port', 587)
 
   execute 'call iris#api#' . s:editor . '#start()'
@@ -44,11 +44,11 @@ function! iris#api#login()
     \'type': 'login',
     \'imap-host': g:iris_imap_host,
     \'imap-port': g:iris_imap_port,
-    \'imap-login': g:iris_imap_login,
+    \'imap-login': g:iris_imap_user,
     \'imap-password': imap_password,
     \'smtp-host': g:iris_smtp_host,
     \'smtp-port': g:iris_smtp_port,
-    \'smtp-login': g:iris_smtp_login,
+    \'smtp-login': g:iris_smtp_user,
     \'smtp-password': empty(smtp_password) ? imap_password : smtp_password,
   \})
 endfunction

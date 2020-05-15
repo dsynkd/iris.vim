@@ -23,13 +23,13 @@ logging.basicConfig(filename='/tmp/iris.log', level=logging.INFO)
 _imap = None
 _imap_host = None
 _imap_port = None
-_imap_login = None
-_imap_password = None
+_imap_user = None
+_imap_pass = None
 
 _smtp_host = None
 _smtp_port = None
-_smtp_login = None
-_smtp_password = None
+_smtp_user = None
+_smtp_pass = None
 
 def get_flags_str(flags):
     flags_str = ''
@@ -159,16 +159,16 @@ while True:
         try:
             _imap_host = request['imap-host']
             _imap_port = request['imap-port']
-            _imap_login = request['imap-login']
-            _imap_password = request['imap-password']
+            _imap_user = request['imap-login']
+            _imap_pass = request['imap-password']
 
             _smtp_host = request['smtp-host']
             _smtp_port = request['smtp-port']
-            _smtp_login = request['smtp-login']
-            _smtp_password = request['smtp-password']
+            _smtp_user = request['smtp-login']
+            _smtp_pass = request['smtp-password']
 
             _imap = IMAPClient(host=_imap_host, port=_imap_port)
-            _imap.login(_imap_login, _imap_password)
+            _imap.login(_imap_user, _imap_pass)
 
             folders = list(map(lambda folder: folder[2], _imap.list_folders()))
 
@@ -218,7 +218,7 @@ while True:
             logging.info(message)
             smtp = smtplib.SMTP(host=_smtp_host, port=_smtp_port)
             smtp.starttls()
-            smtp.login(_smtp_login, _smtp_password)
+            smtp.login(_smtp_user, _smtp_pass)
             smtp.send_message(message)
             smtp.quit()
 
