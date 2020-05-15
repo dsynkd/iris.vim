@@ -2,7 +2,7 @@ if exists('b:current_syntax')
   finish
 endif
 
-syntax match iris_email         /[a-zA-Z\.\_]\+@[a-zA-Z\.\_]\+/
+syntax match iris_email         /[a-zA-Z\.\_-]\+@[a-zA-Z\.\_-]\+/
 syntax match iris_separator     /|/
 syntax match iris_table_email   /^|.\{-}|/                    contains=iris_separator,iris_email
 syntax match iris_table_subject /^|.\{-}|.\{-}|/              contains=iris_table_email,iris_separator
