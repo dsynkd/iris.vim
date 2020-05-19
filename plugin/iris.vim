@@ -1,2 +1,2 @@
-command! Iris call iris#start()
-command! IrisFolder call iris#folder#ui#select()
+command! Mail call iris#start()
+command! MailFolder call iris#folder#ui#select()
